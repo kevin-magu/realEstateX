@@ -1,0 +1,36 @@
+header{
+    align-items: center;
+    justify-content: center;
+}
+.header-items-container{
+    margin: 0 10px 0px 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+header h1{
+    font-size: 24px;
+}
+form{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+form input{
+    padding: 5px;
+    border-radius: 3px;
+}
+input:focus{
+    outline: none;
+}
+
+.search-icon{
+    right: 10px;
+    position: absolute;
+}
+header ul {
+    display: flex;
+    color: white;
+    gap: 5px;
+    font-size: 19px;
+}
