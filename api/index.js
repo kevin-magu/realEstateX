@@ -7,7 +7,7 @@ let connection =  mongoose.connect(process.env.MONGODB)
 if(connection){
     console.log("connection successful")
 }else{
-    console.log("connection with db failed");
+    console.log("connection with db failed. try ");
 }
 
 
