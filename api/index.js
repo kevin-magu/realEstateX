@@ -1,4 +1,15 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
+let connection =  mongoose.connect(process.env.MONGODB)
+if(connection){
+    console.log("connection successful")
+}else{
+    console.log("connection with db failed");
+}
+
 
 const app = express();
 
