@@ -31,8 +31,10 @@ form input{
     width: 100%;
     padding: 9px;
     border-radius: 5px;
-    cursor: pointer;
     color: white;
+}
+.signup-form button:hover{
+    cursor: pointer;
 }
 .signup-button{
     background-color: rgb(72, 123, 168);

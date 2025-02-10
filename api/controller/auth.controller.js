@@ -10,7 +10,9 @@ export const signup = async(req,res,next)=>{
     try {
         await newUser.save();
         res.status(201).json('user created successfully');
+        throw new Error("Testing sighn up error")
     } catch (error) {
+        console.error("signup error", error);
         next(error);
     }
 }
