@@ -34,7 +34,7 @@ const data = await res.json();
 setLoading(false);
 
 
-if(data.success == false){
+if(data.success === false){
   setError(data.message);
   console.log( data.message );
 }else{

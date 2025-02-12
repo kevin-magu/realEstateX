@@ -2,12 +2,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/signup.css';
 import { FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signInStart, signInFailure,signInSuccess } from '../redux/user/userSlice';
 
 function Signin() {
   const [formData, setFormData] = useState({})
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate  = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) =>{
     setFormData({
@@ -32,7 +35,7 @@ const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) =>{
   const data = await res.json();
   setLoading(false);
 
-  if(data.success == false){
+  if(data.success === false){
     setError(data.message);
     console.log("An error occured", data.message);
   }else{
