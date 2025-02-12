@@ -37,6 +37,8 @@ setLoading(false);
 if(data.success == false){
   setError(data.message);
   console.log( data.message );
+}else{
+  navigate('/signin')
 }
  
 

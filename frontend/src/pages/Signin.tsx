@@ -16,7 +16,6 @@ function Signin() {
     })
   }
 const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) =>{
-  try {
     setLoading(true);
     e.preventDefault();
     const res = await fetch('/api/auth/signin', 
@@ -31,16 +30,16 @@ const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) =>{
   
 );
   const data = await res.json();
-  
   setLoading(false);
 
-  console.log(data.success);
-  navigate('/');
-} catch (error:any) {
-    setError(error.message);
-    console.log(error.statusCode);
-    setLoading(false);
+  if(data.success == false){
+    setError(data.message);
+    console.log("An error occured", data.message);
+  }else{
+    navigate('/');
   }
+
+
 }
  
 //console.log(formData);
