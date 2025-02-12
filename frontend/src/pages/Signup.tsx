@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 function Signup() {
   const [formData, setFormData] = useState({})
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate  = useNavigate();
 
@@ -17,7 +17,7 @@ function Signup() {
     })
   }
 const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) =>{
-  try {
+  
     setLoading(true);
     e.preventDefault();
     const res = await fetch('/api/auth/signup', 
@@ -28,19 +28,20 @@ const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) =>{
     },
     body: JSON.stringify(formData),
   },
-  
-  
 );
+
 const data = await res.json();
 setLoading(false);
-  
-console.log(data.success);
-navigate('/signin');
-  } catch (error:any) {
-    setError(error.message);
-    console.log(error.statusCode);
-    setLoading(false);
-  }
+
+
+if(data.success == false){
+  setError(data.message);
+  console.log( data.message );
+}
+ 
+
+//console.log("This is the response data",data);
+ 
 }
  
 //console.log(formData);
@@ -56,7 +57,7 @@ navigate('/signin');
         <input type="password" placeholder='password' id='password' onChange={handleSignup} required/>
         <button disabled={loading? true : false} className='signup-button'>{loading? 'Signing you up...': 'Sign Up'}</button>
         <button disabled={loading? true: false} className='google-button'> <FaGoogle /> Login with Google</button>
-        <p>Already have an account? <Link className='signin-link' to={'/signin'}>Log in</Link></p>
+        <p>Already have an account? <Link className='signin-link' to={'/signin'}>Sign in</Link></p>
       </form>
       </div>
     </div>  

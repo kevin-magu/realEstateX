@@ -13,7 +13,7 @@ export const signup = async(req,res,next)=>{
         res.status(201).json('user created successfully');
         
     } catch (error) {
-        console.error("signup error", error);
+        console.error(error,"signup error");
         next(error);
     }
 }

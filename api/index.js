@@ -30,12 +30,13 @@ app.use((err, req,res,next)=>{
     const statusCode = err.statusCode || 500;
     const message = err.message || 'internal server error'; 
 
-    console.error("API Error response:" , JSON.stringify({
+ /*   console.error("API Error response:" , JSON.stringify({
         success: false,
         statusCode,
         message,
-    }, null,2));
+    }, null,2));*/
 
+    
     return res.status(statusCode).json({
         success: false,
         statusCode,
