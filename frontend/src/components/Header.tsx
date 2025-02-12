@@ -23,7 +23,7 @@ function Header() {
                 <Link to='/about'>
                     <li>About</li>
                 </Link>
-                <Link to='onboarding'>
+                <Link to='signin'>
                     <li>Sign In</li>
                 </Link>
             </ul>

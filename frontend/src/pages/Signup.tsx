@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/signup.css';
 import { FaGoogle } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState } from 'react'; 
+
 
 function Signup() {
   const [formData, setFormData] = useState({})
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate  = useNavigate();
 
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) =>{
     setFormData({
@@ -33,6 +35,7 @@ const data = await res.json();
 setLoading(false);
   
 console.log(data.success);
+navigate('/signin');
   } catch (error:any) {
     setError(error.message);
     console.log(error.statusCode);
